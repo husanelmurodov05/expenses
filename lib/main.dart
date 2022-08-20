@@ -1,69 +1,78 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
-  runApp(Expenses());
+  runApp(Color());
 }
 
-class Expenses extends StatefulWidget {
-  const Expenses({Key? key}) : super(key: key);
+class Color extends StatefulWidget {
+  const Color({Key? key}) : super(key: key);
 
   @override
-  State<Expenses> createState() => _ExpensesState();
+  State<Color> createState() => _ColorsState();
 }
 
-class _ExpensesState extends State<Expenses> {
+class _ColorsState extends State<Color> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          centerTitle: true,
-          title: const Text("Harajatlar",
-              style: TextStyle(color: Colors.blue, fontSize: 25)),
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.home,
-            ),
-            splashColor: Colors.blue,
-          ),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Card(
-              margin: EdgeInsets.all(10),
-              color: Colors.red,
-              child: Text(
-                "Digramma qismi",
-                style: TextStyle(fontSize: 25),
-              ),
-              elevation: 5,
-            ),
-            Container(
-              margin: const EdgeInsets.all(20),
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Card(
-                child: Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.all(10),
-                  child: const Text(
-                    "List Transteraction ",
-                    style: TextStyle(fontSize: 15),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Column(children: [
+            Expanded(
+              flex: 2,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 180,
+                      margin: EdgeInsets.all(10),
+                      child: Card(
+                        color: Colors.red,
+                      ),
+                    ),
                   ),
-                ),
-                elevation: 5,
-                color: Colors.blue,
+                  Expanded(
+                    child: Container(
+                      height: 180,
+                      margin: EdgeInsets.all(10),
+                      child: Card(color: Colors.red),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+            Expanded(
+              flex: 2,
+              child: Container(
+                width: double.infinity,
+                margin: EdgeInsets.all(10),
+                child: const Card(
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+            Expanded(
+                flex: 3,
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                         color: Colors.blueAccent,
+                        margin: EdgeInsets.all(10),
+                        
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        margin: EdgeInsets.all(10),
+                         color: Colors.blueAccent,
+                      ),
+                    ),
+                  ],
+                )),
+          ]),
+        ));
   }
 }
